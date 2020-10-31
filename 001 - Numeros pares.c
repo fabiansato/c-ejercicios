@@ -2,6 +2,7 @@
 
 
 /* imprimir el cuadrado de los primeros numeros pares */
+
 int main() {
 	int num;
 	num = 2;
