@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<!-- saved from url=(0090)https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros#Asignando_valores_a_punteros -->
+<html class="client-js ve-not-available" lang="es" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Programación en C/Punteros - Wikilibros</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Programación_en_C/Punteros","wgTitle":"Programación en C/Punteros","wgCurRevisionId":353152,"wgRevisionId":353152,"wgArticleId":10159,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Programación en C"],"wgBreakFrames":false,"wgPageContentLanguage":"es","wgPageContentModel":"wikitext","wgSeparatorTransformTable":[",\t."," \t,"],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"],"wgMonthNamesShort":["","ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"],"wgRelevantPageName":"Programación_en_C/Punteros","wgRelevantArticleId":10159,"wgRequestId":"W0XylQpAADkAAFqaJbsAAABG","wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgWikiEditorEnabledModules":[],"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgVisualEditor":{"pageLanguageCode":"es","pageLanguageDir":"ltr","pageVariantFallbacks":"es","usePageImages":false,"usePageDescriptions":true},"wgPreferredVariant":"es","wgMFExpandAllSectionsUserOption":true,"wgMFEnableFontChanger":true,"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgULSCurrentAutonym":"español","wgNoticeProject":"wikibooks","wgCentralNoticeCookiesToDelete":[],"wgCentralNoticeCategoriesUsingLegacy":["Fundraising","fundraising"],"wgScoreNoteLanguages":{"arabic":"العربية","catalan":"català","deutsch":"Deutsch","english":"English","espanol":"español","italiano":"italiano","nederlands":"Nederlands","norsk":"norsk","portugues":"português","suomi":"suomi","svenska":"svenska","vlaams":"West-Vlams"},"wgScoreDefaultNoteLanguage":"nederlands","wgCentralAuthMobileDomain":false,"wgCodeMirrorEnabled":true,"wgVisualEditorToolbarScrollOffset":0,"wgVisualEditorUnsupportedEditParams":["undo","undoafter","veswitched"],"wgEditSubmitButtonLabelPublish":true});mw.loader.state({"ext.globalCssJs.user.styles":"ready","ext.globalCssJs.site.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","ext.globalCssJs.site":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.pygments":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","wikibase.client.init":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready","mediawiki.skinning.interface":"ready","skins.vector.styles":"ready"});mw.loader.implement("user.options@00wq302",function($,jQuery,require,module){/*@nomin*/mw.user.options.set({"variant":"es"});
+});mw.loader.implement("user.tokens@1dqfd7l",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});mw.loader.load(["ext.shortUrl","site","mediawiki.page.startup","mediawiki.user","mediawiki.page.ready","mediawiki.toc","mediawiki.searchSuggest","ext.centralauth.centralautologin","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging.subscriber","ext.wikimediaEvents","ext.navigationTiming","ext.uls.eventlogger","ext.uls.init","ext.uls.compactlinks","ext.uls.interface","ext.3d","ext.centralNotice.geoIP","ext.centralNotice.startUp","skins.vector.js"]);});</script>
+<link rel="stylesheet" href="./Programación en C_Punteros - Wikilibros_files/load.php">
+<script async="" src="./Programación en C_Punteros - Wikilibros_files/load(1).php"></script>
+<style>
+.mw-spinner{background-color:transparent;background-position:center center;background-repeat:no-repeat}.mw-spinner-small{background-image:url(data:image/gif;base64,R0lGODlhFAAUAIQQAAYJBRkbGCYnJTI0MT9APk5QTVhZV2ZoZXR2c4SGg5CSj52fnKyuq7m7uMfJxtPV0v///////////////////////////////////////////////////////////////yH/C05FVFNDQVBFMi4wAwEAAAAh+QQJCgABACwAAAAAFAAUAAAFc2AgjuNQkCipHCMAiI6TjoWAiG7gNM08CgTca+cbGWyBXEMm6okMJxGBNWLuGo8ngWBY+HgxlIFwm4VnimKKkWgn1Dzwwv0uxpfqfJWZ2p1hV0VXTA9gMCRETXxOOj08jXxfMo+NcHiUgT5nlAFZejqRKCEAIfkECQoADAAsAAAAABQAFAAABXYgI45jcZAouSSjIIjDkI4HwTJBIALvLBIFUY4xAPhoA1ZAcAjIRI2RQlFCkIIMR6PxEC0UiYXDt3WMSdOFz0w+prTb6DHeMNPd9LN7n9WjtGwjdnIzcGeGIn5aI3WMglFbWY14kHKLR4AMkZKEb2ebDF18fUchACH5BAkKAAEALAAAAAAUABQAAAV6YCCO44GQKOkw40CIxZuKi9KIwyAK8hwkCpyOIPCNFglWTjEojAgJkeMmUixIhiABADhIGw3HwycACLyqsI+ATo2NqCmY6puH5WC43QHvjxx8M3KBUnJGgyIPYIGEAVMjaiJ0j3lTjTN5eQGadWqainQpgJJ0b36jPiEAIfkECQoAAQAsAAAAABQAFAAABXVgII7jwpAo+TxjkoiGkY5OwwauSBTz2DSinIHQozUcuISCIIMpRDUfcoRYBAwCwQH6c9xSBAEBgapNUwfy7Fs0/oBFgBwwqL3bcwCvzYeey10qdkV2Uw+BAX9RIkc+RgE/iY1tkZGSlI2Wgz0OU5YBbG2dRSEAIfkECQoACAAsAAAAABQAFAAABXcgIo4j05Ao+TjjsohuOjoNi8RIoshjDb+KBG/mczUUL9EhSevZYKwDgSBE0GoPXmFgqBKfqIMXlR2iro3TMCBgF9BqXpt9MKPGJAeYRAhw81dDAwAAAyIPaTZgTSIChiJxTWlWPmaTk5SWPpiBPHqQcWV2VnskIQAh+QQJCgABACwAAAAAFAAUAAAFemAgjqPjkCj5nGLTiAyTlg3rios8t/bLLDvayeXIjRYsx4tHcjwCi0RCp6w9Z4qEQifcxXbXYNN1Cw7Og0O1vEMTEGKUYmfaGQaEQ7O6WxQEAwUiD0QiLCIEAiMEBCNLAUoBNwcAA3E3ZQIAYoVllI10PSMHCXGGhykhACH5BAkKAAEALAAAAAAUABQAAAV3YCCOo+OQKPmcYtOIZlo2T/sGDSvjrBs4t90vh6MRYbXh6Igc0mAuRzIV1UGtpJhsKpy5grKEOLEAfrvjBKOLUuy0KQTBkMiadwsDYS56RGEkBwQjBQZLMwEAAAEIAoZdPooiBAKQRJKMAgVCWpgBB25sAQUDQiEAIfkECQoAEAAsAAAAABQAFAAABXsgJI6j45Ao+Zxi04hmWjZP+0INK+OsCzm33S+HoxFhteHoiBzSYC5HMhXVQa2kmGwqnLmCsm8O+O2KseadNrVQKBhZsnqRSChEj6iIQEIURm5LIwMBCAIBEAkDB10QAAIQAYgQBnxChyKYiQSMOwKQEJ8jCQuNIgd/OyEAIfkECQoAHwAsAAAAABQAFAAABXzgJ46j45Ao+Zxi04hmWjZP+34NK+Os+zm33S+HoxFhteHoiBzSYC5HMhXVQa2kmGwqnLmCsm8O+O2KsV0u6UDYAbWigwAg2K2iIgMAMPgsDCQMCkssCW0iBQMKA30MCQtdHwNtjCILCV0EfZKbDY9CBAUimiMMaDIIgDshACH5BAkKAB8ALAAAAAAUABQAAAV44CeOo+OQKPmcYtOIZlo2T/t+DSvjrPs5t90vh6MRYbXh6Igc0mAuRzIV1UGtpJhsKhwVAGBA1xUdhMVCMrMr4pIQhx1QK0IQBITdKio6CAQFHwsIWUFHCoEiBgQKCQlDWCkEgY5QXQV5H5WQQgWJmx8PbjsMC0IhACH5BAkKAB8ALAAAAAAUABQAAAV14CeOo+OQKPmcYtO0bwo/cC3b7pffotOcrsevRPsMBKMh8eNrFAcBwEBxczlRUMLNdEvwUgWAGPC1/gZjMs9c/I7aqMRh62KJEoZB4bay3gkEcw4LJD5JMQtzIgsKfj52XVQ7OzcKVDoxQjEyCoSYb3A8XDchACH5BAEKAB8ALAAAAAAUABQAAAV64CeOo+OQKJkcY9OIZjoSAPu5Ii6LgJC/jtdONKjdGo/GCfYQEQYjAYHkaAaVosJgUFjsXDHS07ALpxTDFOK5TbvAh217+MamSU0Zg1FWLkUMCgloMg9XSwwJCV6GVEI3Sw5eMEg4QX9fJzo6X0I6SZgoYZwPeXdmKSEAOw==);background-image:url(/w/resources/src/jquery.spinner/images/spinner.gif?ca65b)!ie;height:20px;width:20px; min-width:20px}.mw-spinner-large{background-image:url(data:image/gif;base64,R0lGODlhIAAgAOMAAP///wAAAMbGxoSEhLa2tpqamjY2NlZWVtjY2OTk5Ly8vB4eHgQEBP///////////yH/C05FVFNDQVBFMi4wAwEAAAAh+QQFCgAPACwAAAAAIAAgAAAE5/DJSWlhperN52JLhSSdRgwVo1ICQZRUsiwHpTJT4iowNS8vyW2icCF6k8HMMBk+EDskxTBDPZwuAkkqIfxIQyhBQBFvHwSDITM5VDW6XNE4KagNh6Bgwe60smQUB3d4Rz1ZBApnFASDd0hihh12BkE9kjAJVlycXIg7CQIFA6SlnJ87paqbSKiKoqusnbMdmDC2tXQlkUhziYtyWTxIfy6BE8WJt5YJvpJivxNaGmLHT0VnOgSYf0dZXS7APdpB309RnHOG5g/qXGLDaC457D1zZ/V/nmOM82XiHRLYKhKP1oZmADdEAAAh+QQFCgAPACwAAAAAGAAXAAAEcvDJSesiNetplqlDsYnUYlIGw2jGV55SoS5sq0wmLS3qoBWtAw42mG0ehxYp90CoGKRNy8U8qFzNweCGwlJkgolCq0VIEAbMkUIghxLrDcLti2/Gg7D9qN774wkKBIOEfw+ChIV/gYmDho+QkZKTR3p7EQAh+QQFCgAPACwBAAAAHQAOAAAEcvDJSScxNev9jjkZwU2IUhkodSzLKA2DOKGYRLD1CA/InEoGlkui2PlyuKGkADM9aI8EayGbJDYI4zM1YIEmAwajkCAoehNmTNNaLsQMHmGuuEYHgpHAAGfUBHNzeUp9VBQJCoFOLmFxWHNoQweRWEocEQAh+QQFCgAPACwHAAAAGQARAAAEavDJ+cQQNOtdRsnf9iRINpyZYYgEgU3nQKnr1hIJjEqHGmqIlkInexRUB5FE0So9YhKaUpK4SaAPlWaxIFAETQ3B4BxzF2Kn8nBeJKebdm3SgksKXDt8kNP7/xoMgoMLP36DiAyAD4kMhREAIfkEBQoADwAsDgAAABIAGAAABGUQFfSqvZiUghXF1cZZxTCA4WYh5omKVqugD/woLV2rT/u9KoJpFDIYaIJBwnIwGogoivOoq0wPs6r1qe16v5WFeEzVjc+LKnphIIC9g193wGC4uvX6Aoo05BllVQULeXdadAxuEQAh+QQFCgAPACwOAAAAEgAeAAAEgDCp9Kq9WBGFBb5ECBbFV4XERaYmahGk14qPQJbm4z53foq2AquiGAwQJsQQYTRyfIlCc4DzTY8+i8CZxQy74KxhTD58P+S0Qaw+hN8WyruwWMDrdcM5ecAv3CYDDDIEBngmBwwMaxeGJgmKDFVdggx2bwuKA28EkXAGinJhVCYRACH5BAUKAA8ALA8AAQARAB8AAAR88Mn5UKIYC0KyT5ziZQqHjBQSohRHXGzFCSkHU/eTlCa7uTSUi6DIeVSEU0yiXDo9g6i0EIRKr6hrlPrsOgkGQ8EZDh+eZcOosKAcymPKYLE4TwphCWMvoS86HnsME3RqgXwSBnQjghR+h4MTB4sZjRiAGAsMbU4FDHFLEQAh+QQFCgAPACwIAA4AGAASAAAEbPDJSesjOKtk+8yg4nkgto1oihIqKgyD2FpwjcxUUtRDMROG2wPBkz0EjEHHYKgoYMKHgcE4PBZYCbM5KlAZHOxCUmBaPQuq8pqVHJg+GnUsEVO2nTQjzqZPmB1UXHVtE3wVOxUGC4M4H34qEQAh+QQFCgAPACwCABIAHQAOAAAEePDJSat96FJ0tEUEkV0DwwwepYSEklDEYpopJbCEIBkzY+geweD1SKxCiJJpUZAgmBbCYNCcIFaJggk1OSwWKINYMh2MLMRJ7LsbPxTl2sTAbhsmhalC/vje7VZxNXQLBHNuEnlcKV8dh38TCmcehhUHBo58cpA1EQAh+QQFCgAPACwAAA8AGQARAAAEZ7AsRuu7OOtbO9tgJnlfaJ7omQwpuixFCxrvK2dHvRwoQmw1w+8i3PgIggzBpjEYLoPohUBNoJzPR5T1OCpOB2dMK70oqIhQwcmDlh8J6nCDzWwzAmrIqblnEFZqGgUDYzcaAgNJGxEAIfkEBQoADwAsAQAIABEAGAAABFyQMDaevfiOyVbJ4GNwjCGEWLGQaLZRbYZUcW3feK7vaGEYNsXh96sRgYiW73e4JAYn0O9zKQwGhAdhi5pdLdts6DpQgLkgBfkSHl+TZ7ELi2mDEHKLgmC+JRQJEQAh+QQFCgAPACwAAAIADgAdAAAEcvDJ+cqgeDJmMt4M4U3DtozTsl1oASJpRxnbkS6LIT4Cw0oHHO4A8xAMwhPqgSssH4nnknAwWK+Zq1ZGoW650vAOpRgMBCOEee2xrAtRTNlcQEsI8Yd6oKAICARFHgmAYx4KgIIZCIB9ZIB5RgR2KAmKEQA7);background-image:url(/w/resources/src/jquery.spinner/images/spinner-large.gif?57f34)!ie;height:32px;width:32px; min-width:32px}.mw-spinner-block{display:block; width:100%}.mw-spinner-inline{display:inline-block;vertical-align:middle}
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:0;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:#fff;cursor:pointer;border:1px solid #a2a9b1;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:#fff;cursor:pointer;border:1px solid #a2a9b1;padding:0;margin:0}.suggestions-result{color:#000;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#2a4b8d;color:#fff}.suggestions-special .special-label{color:#72777d;text-align:left}.suggestions-special .special-query{color:#000;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:#c8ccd1}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:#fff}.highlight{font-weight:bold}
+@media screen {
+	.tochidden,.toctoggle{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}.toctoggle{font-size:94%}}
+@media print {
+	.toc.tochidden,.toctoggle{display:none}}
+.mw-editfont-monospace{font-family:monospace,monospace}.mw-editfont-sans-serif{font-family:sans-serif}.mw-editfont-serif{font-family:serif} .mw-editfont-monospace,.mw-editfont-sans-serif,.mw-editfont-serif{font-size:13px; }.mw-editfont-monospace.oo-ui-textInputWidget,.mw-editfont-sans-serif.oo-ui-textInputWidget,.mw-editfont-serif.oo-ui-textInputWidget{font-size:inherit}.mw-editfont-monospace > .oo-ui-inputWidget-input,.mw-editfont-sans-serif > .oo-ui-inputWidget-input,.mw-editfont-serif > .oo-ui-inputWidget-input{font-size:13px}
+@media print{#centralNotice{display:none}}.cn-closeButton{display:inline-block;zoom:1;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUBAMAAAB/pwA+AAAAElBMVEUAAAAQEBDPz88AAABAQEDv7+9oe1vvAAAABnRSTlMA3rLe3rJS22KzAAAARElEQVQI12PAAUIUQCSTK5BwFgIxFU1AhKECUFAYKAAioXwwBeZChMGCEGGQIFQYJohgIhQgtCEMQ7ECYTHCOciOxA4AADgJTXIb9s8AAAAASUVORK5CYII=) no-repeat;background:url(/w/extensions/CentralNotice/resources/subscribing/close.png?8e3d8) no-repeat!ie;width:20px;height:20px;text-indent:20px;white-space:nowrap;overflow:hidden}
+.title-shortlink{font-size:small;margin:0}
+.mw-ui-button{font-family:inherit;font-size:1em;display:inline-block;min-width:4em;max-width:28.75em;padding:0.546875em 1em;line-height:1.286;margin:0;border-radius:2px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-appearance:none;*display:inline; zoom:1;vertical-align:middle;background-color:#f8f9fa;color:#222222;border:1px solid #a2a9b1;text-align:center;font-weight:bold;cursor:pointer}.mw-ui-button:visited{color:#222222}.mw-ui-button:hover{background-color:#ffffff;color:#444444;border-color:#a2a9b1}.mw-ui-button:focus{background-color:#ffffff;color:#222222;border-color:#3366cc;box-shadow:inset 0 0 0 1px #3366cc,inset 0 0 0 2px #ffffff}.mw-ui-button:active,.mw-ui-button.is-on,.mw-ui-button.mw-ui-checked{background-color:#d9d9d9;color:#000000;border-color:#72777d;box-shadow:none}.mw-ui-button:disabled{background-color:#c8ccd1;color:#fff;border-color:#c8ccd1}.mw-ui-button:disabled:hover,.mw-ui-button:disabled:active{background-color:#c8ccd1;color:#fff;box-shadow:none;border-color:#c8ccd1}.mw-ui-button:focus{outline-width:0}.mw-ui-button:focus::-moz-focus-inner{border-color:transparent;padding:0}.mw-ui-button:not(:disabled){-webkit-transition:background-color 100ms,color 100ms,border-color 100ms,box-shadow 100ms;-moz-transition:background-color 100ms,color 100ms,border-color 100ms,box-shadow 100ms;transition:background-color 100ms,color 100ms,border-color 100ms,box-shadow 100ms}.mw-ui-button:disabled{text-shadow:none;cursor:default}.mw-ui-button.mw-ui-big{font-size:1.3em}.mw-ui-button.mw-ui-block{display:block;width:100%;margin-left:auto;margin-right:auto}.mw-ui-button.mw-ui-progressive{background-color:#3366cc;color:#fff;border:1px solid #3366cc}.mw-ui-button.mw-ui-progressive:hover{background-color:#447ff5;border-color:#447ff5}.mw-ui-button.mw-ui-progressive:focus{box-shadow:inset 0 0 0 1px #3366cc,inset 0 0 0 2px #ffffff}.mw-ui-button.mw-ui-progressive:active,.mw-ui-button.mw-ui-progressive.is-on,.mw-ui-button.mw-ui-progressive.mw-ui-checked{background-color:#2a4b8d;border-color:#2a4b8d;box-shadow:none}.mw-ui-button.mw-ui-progressive:disabled{background-color:#c8ccd1;color:#fff;border-color:#c8ccd1}.mw-ui-button.mw-ui-progressive:disabled:hover,.mw-ui-button.mw-ui-progressive:disabled:active,.mw-ui-button.mw-ui-progressive:disabled.mw-ui-checked{background-color:#c8ccd1;color:#fff;border-color:#c8ccd1;box-shadow:none}.mw-ui-button.mw-ui-progressive.mw-ui-quiet{color:#222222}.mw-ui-button.mw-ui-progressive.mw-ui-quiet:hover{background-color:transparent;color:#447ff5}.mw-ui-button.mw-ui-progressive.mw-ui-quiet:active,.mw-ui-button.mw-ui-progressive.mw-ui-quiet.mw-ui-checked{color:#2a4b8d}.mw-ui-button.mw-ui-progressive.mw-ui-quiet:focus{background-color:transparent;color:#3366cc}.mw-ui-button.mw-ui-progressive.mw-ui-quiet:disabled{color:#c8ccd1}.mw-ui-button.mw-ui-destructive{background-color:#dd3333;color:#fff;border:1px solid #dd3333}.mw-ui-button.mw-ui-destructive:hover{background-color:#ff4242;border-color:#ff4242}.mw-ui-button.mw-ui-destructive:focus{box-shadow:inset 0 0 0 1px #dd3333,inset 0 0 0 2px #ffffff}.mw-ui-button.mw-ui-destructive:active,.mw-ui-button.mw-ui-destructive.is-on,.mw-ui-button.mw-ui-destructive.mw-ui-checked{background-color:#b32424;border-color:#b32424;box-shadow:none}.mw-ui-button.mw-ui-destructive:disabled{background-color:#c8ccd1;color:#fff;border-color:#c8ccd1}.mw-ui-button.mw-ui-destructive:disabled:hover,.mw-ui-button.mw-ui-destructive:disabled:active,.mw-ui-button.mw-ui-destructive:disabled.mw-ui-checked{background-color:#c8ccd1;color:#fff;border-color:#c8ccd1;box-shadow:none}.mw-ui-button.mw-ui-destructive.mw-ui-quiet{color:#222222}.mw-ui-button.mw-ui-destructive.mw-ui-quiet:hover{background-color:transparent;color:#ff4242}.mw-ui-button.mw-ui-destructive.mw-ui-quiet:active,.mw-ui-button.mw-ui-destructive.mw-ui-quiet.mw-ui-checked{color:#b32424}.mw-ui-button.mw-ui-destructive.mw-ui-quiet:focus{background-color:transparent;color:#dd3333}.mw-ui-button.mw-ui-destructive.mw-ui-quiet:disabled{color:#c8ccd1}.mw-ui-button.mw-ui-quiet{background:transparent;border:0;text-shadow:none;color:#222222}.mw-ui-button.mw-ui-quiet:hover{background-color:transparent;color:#444444}.mw-ui-button.mw-ui-quiet:active,.mw-ui-button.mw-ui-quiet.mw-ui-checked{color:#000000}.mw-ui-button.mw-ui-quiet:focus{background-color:transparent;color:#222222}.mw-ui-button.mw-ui-quiet:disabled{color:#c8ccd1}.mw-ui-button.mw-ui-quiet:hover,.mw-ui-button.mw-ui-quiet:focus{box-shadow:none}.mw-ui-button.mw-ui-quiet:active,.mw-ui-button.mw-ui-quiet:disabled{background:transparent}input.mw-ui-button::-moz-focus-inner,button.mw-ui-button::-moz-focus-inner{margin-top:-1px;margin-bottom:-1px}a.mw-ui-button{text-decoration:none}a.mw-ui-button:hover,a.mw-ui-button:focus{text-decoration:none}.mw-ui-button-group > *{min-width:48px;border-radius:0;float:left}.mw-ui-button-group > *:first-child{border-top-left-radius:2px;border-bottom-left-radius:2px}.mw-ui-button-group > *:not(:first-child){border-left:0}.mw-ui-button-group > *:last-child{border-top-right-radius:2px;border-bottom-right-radius:2px}.mw-ui-button-group .is-on .button{cursor:default}
+@-webkit-keyframes centralAuthPPersonalAnimation{0%{opacity:0;-webkit-transform:translateY(-20px)}100%{opacity:1;-webkit-transform:translateY(0)}}@-moz-keyframes centralAuthPPersonalAnimation{0%{opacity:0;-moz-transform:translateY(-20px)}100%{opacity:1;-moz-transform:translateY(0)}}@-o-keyframes centralAuthPPersonalAnimation{0%{opacity:0;-o-transform:translateY(-20px)}100%{opacity:1;-o-transform:translateY(0)}}@keyframes centralAuthPPersonalAnimation{0%{opacity:0;transform:translateY(-20px)}100%{opacity:1;transform:translateY(0)}}.centralAuthPPersonalAnimation{-webkit-animation-duration:1s;-moz-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:centralAuthPPersonalAnimation;-moz-animation-name:centralAuthPPersonalAnimation;-o-animation-name:centralAuthPPersonalAnimation;animation-name:centralAuthPPersonalAnimation}
+.uls-menu{border-radius:2px; font-size:medium}.uls-search,.uls-language-settings-close-block{border-top-right-radius:2px;border-top-left-radius:2px}.uls-language-list{border-bottom-right-radius:2px;border-bottom-left-radius:2px}.uls-menu.callout:before,.uls-menu.callout:after{border-top:10px solid transparent;border-bottom:10px solid transparent;display:inline-block; top:17px;position:absolute;content:''}.uls-menu.callout.selector-right:before{ border-left:10px solid #c8ccd1; right:-11px}.uls-menu.callout.selector-right:after{ border-left:10px solid #f8f9fa; right:-10px}.uls-menu.callout.selector-left:before{ border-right:10px solid #c8ccd1; left:-11px}.uls-menu.callout.selector-left:after{ border-right:10px solid #f8f9fa; left:-10px}.uls-ui-languages button{margin:5px 15px 5px 0;white-space:nowrap;overflow:hidden}.uls-search-wrapper-wrapper{position:relative;padding-left:40px;margin-top:5px;margin-bottom:5px}.uls-icon-back{background:transparent url(/w/extensions/UniversalLanguageSelector/resources/images/back-grey-ltr.png?90e9b) no-repeat scroll center center;background-image:-webkit-linear-gradient(transparent,transparent),url(/w/extensions/UniversalLanguageSelector/resources/images/back-grey-ltr.svg?e226b);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22%3E %3Cpath fill=%22%2354595d%22 d=%22M7 13.1l8.9 8.9c.8-.8.8-2 0-2.8l-6.1-6.1 6-6.1c.8-.8.8-2 0-2.8L7 13.1z%22/%3E %3C/svg%3E");background-size:28px;background-position:center center;height:32px;width:40px;display:block;position:absolute;left:0;border-right:1px solid #c8ccd1;opacity:0.8}.uls-icon-back:hover{opacity:1;cursor:pointer}.uls-menu .uls-no-results-view .uls-no-found-more{background-color:#fff}.uls-menu .uls-no-results-view h3{padding:0 28px;margin:0;color:#54595d;font-size:1em;font-weight:normal}  .skin-vector .uls-menu{border-color:#c8ccd1;-webkit-box-shadow:0 2px 2px 0 rgba(0,0,0,0.25);box-shadow:0 2px 2px 0 rgba(0,0,0,0.25);font-size:0.875em}.skin-vector .uls-search{border-bottom-color:#c8ccd1}.skin-vector .uls-filtersuggestion{color:#72777d}.skin-vector .uls-lcd-region-title{color:#54595d}</style><style>
+.mw-3d-wrapper{display:inline-block;position:relative;overflow:hidden;vertical-align:top}.mw-3d-badge{position:absolute;top:11px;left:11px;color:#1e1f21;font-size:14px;line-height:19px;font-weight:bold;opacity:0.8;padding:2px 5px;background-color:#f8f9fa;border-radius:2px}.mw-3d-thumb-placeholder{display:inline-block;text-decoration:none;color:#222}
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:#000;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:#fff}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ve-init-mw-tempWikitextEditorWidget{border:0;padding:0;color:inherit;line-height:1.5em; }.ve-init-mw-tempWikitextEditorWidget:focus{outline:0;padding:0}.ve-init-mw-tempWikitextEditorWidget::selection{background:rgba(109,169,247,0.5); }
+#uls-settings-block{background-color:#f8f9fa;border-top:1px solid #c8ccd1;padding-left:10px;line-height:1.2em;border-radius:0 0 2px 2px}#uls-settings-block > button{background:left top transparent no-repeat;background-size:20px auto;color:#54595d;display:inline-block;margin:8px 15px;border:0;padding:0 0 0 26px;font-size:medium;cursor:pointer}#uls-settings-block > button:hover{color:#222}#uls-settings-block > button.display-settings-block{background-image:url(/w/extensions/UniversalLanguageSelector/resources/images/display.png?d25f1);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3E %3Cpath fill=%22%23222%22 d=%22M.002 2.275V15.22h8.405c.535 1.624-.975 1.786-1.902 2.505 0 0 2.293-.024 3.439-.024 1.144 0 3.432.024 3.432.024-.905-.688-2.355-.868-1.902-2.505h8.527V2.275h-20zm6.81 1.84h.797l3.313 8.466H9.879L8.836 9.943H5.462l-1.043 2.638h-.982zm.368 1.104c-.084.369-.211.785-.368 1.227L5.83 9.023h2.699l-.982-2.577c-.128-.33-.234-.747-.368-1.227zm7.117.982c.753 0 1.295.157 1.656.491.365.334.552.858.552 1.595v4.294h-.675l-.184-.859h-.062c-.315.396-.605.655-.92.798-.311.138-.758.184-1.227.184-.626 0-1.115-.168-1.472-.491-.353-.323-.491-.754-.491-1.35 0-1.275 1.028-1.963 3.068-2.025h1.043v-.429c0-.495-.091-.87-.307-1.104-.211-.238-.574-.307-1.043-.307-.526 0-1.115.107-1.779.429l-.307-.675a4.748 4.748 0 0 1 1.043-.429 4.334 4.334 0 0 1 1.104-.123zm.307 3.313c-.761.027-1.318.157-1.656.368-.334.207-.491.54-.491.982 0 .346.1.617.307.798.211.181.544.245.92.245.595 0 1.012-.164 1.35-.491.342-.326.552-.762.552-1.35v-.552z%22/%3E %3C/svg%3E")}#uls-settings-block > button.input-settings-block{background-image:url(/w/extensions/UniversalLanguageSelector/resources/images/input.png?aea9e);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3E %3Cpath fill=%22%23222%22 d=%22M9 1.281c-.124.259-.185.599-.5.688-.55.081-1.133.018-1.688 0-.866-.032-1.733-.148-2.594 0-.588.157-.953.727-1.188 1.25-.178.416-.271.836-.344 1.281H-.002V16h20V4.5H3.654c.109-.52.203-1.057.563-1.469.222-.231.587-.17.875-.188 1.212.003 2.415.179 3.625.063.463-.058.812-.455.969-.875l.188-.438-.875-.313zM1.875 7.125h1.563c.094 0 .188.093.188.188v1.531a.201.201 0 0 1-.188.188H1.875c-.094 0-.156-.093-.156-.188V7.313c0-.094.062-.188.156-.188zm2.844 0h1.563c.094 0 .156.093.156.188v1.531c0 .094-.062.188-.156.188H4.719c-.094 0-.156-.093-.156-.188V7.313c0-.094.062-.188.156-.188zm2.844 0h1.563c.094 0 .156.093.156.188v1.531c0 .094-.062.188-.156.188H7.563a.201.201 0 0 1-.188-.188V7.313c0-.094.093-.188.188-.188zm2.813 0h1.563c.094 0 .188.093.188.188v1.531a.201.201 0 0 1-.188.188h-1.563c-.094 0-.156-.093-.156-.188V7.313c0-.094.062-.188.156-.188zm2.844 0h1.563c.094 0 .156.093.156.188v1.531c0 .094-.062.188-.156.188H13.22c-.094 0-.156-.093-.156-.188V7.313c0-.094.062-.188.156-.188zm2.844 0h1.531c.094 0 .188.093.188.188v1.531a.201.201 0 0 1-.188.188h-1.531a.201.201 0 0 1-.188-.188V7.313c0-.094.093-.188.188-.188zm-12.844 3h1.563c.094 0 .156.093.156.188v1.563c0 .094-.062.156-.156.156H3.22c-.094 0-.156-.062-.156-.156v-1.563c0-.094.062-.188.156-.188zm2.906 0h1.563c.094 0 .188.093.188.188v1.563c0 .094-.093.156-.188.156H6.126c-.094 0-.156-.062-.156-.156v-1.563c0-.094.062-.188.156-.188zm2.938 0h1.531c.094 0 .188.093.188.188v1.563c0 .094-.093.156-.188.156H9.064c-.094 0-.188-.062-.188-.156v-1.563c0-.094.093-.188.188-.188zm2.906 0h1.563c.094 0 .156.093.156.188v1.563c0 .094-.062.156-.156.156H11.97c-.094 0-.188-.062-.188-.156v-1.563c0-.094.093-.188.188-.188zm2.906 0h1.563c.094 0 .156.093.156.188v1.563c0 .094-.062.156-.156.156h-1.563c-.094 0-.156-.062-.156-.156v-1.563c0-.094.062-.188.156-.188zM4.001 13.688h12c.088 0 .156.068.156.156v.844a.154.154 0 0 1-.156.156h-12a.154.154 0 0 1-.156-.156v-.844c0-.088.068-.156.156-.156z%22/%3E %3C/svg%3E")}
+#p-lang .body ul .uls-trigger,#p-lang .pBody ul .uls-trigger{background-image:none;padding:0} .mw-interlanguage-selector,.mw-interlanguage-selector:active{cursor:pointer;padding:4px 6px 4px 25px;font-size:13px;font-weight:normal;background-image:url(/w/extensions/UniversalLanguageSelector/resources/images/compact-links-trigger.png?b0c8e);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2218%22 height=%2218%22 viewBox=%220 0 24 24%22%3E %3Cpath fill=%22%2372777d%22 d=%22M13 19l.8-3h5.3l.9 3h2.2L18 6h-3l-4.2 13H13zm3.5-11l2 6h-4l2-6zM5 4l.938 1.906H1V8h1.594C3.194 9.8 4 11.206 5 12.406c-1.1.7-4.313 1.781-4.313 1.781L2 16s3.487-1.387 4.688-2.188c1 .7 2.319 1.188 3.719 1.688l.594-2c-1-.3-1.988-.688-2.688-1.188 1.1-1.1 1.9-2.506 2.5-4.406h2.188l.5-2H7.938L7 4H5zm-.188 4h3.781c-.4 1.3-.906 2-1.906 3-1.1-1-1.475-1.7-1.875-3z%22/%3E %3C/svg%3E");background-size:18px;background-repeat:no-repeat;background-position:left 4px center;margin:4px 0;text-align:left}.mw-interlanguage-selector:active,.mw-interlanguage-selector.selector-open{background-color:#c8ccd1;color:#54595d}.interlanguage-uls-menu:before,.interlanguage-uls-menu:after{border-top:10px solid transparent;border-bottom:10px solid transparent;display:inline-block; top:17px;position:absolute;content:''}.interlanguage-uls-menu.selector-right:before{ border-left:10px solid #c8ccd1; right:-11px}.interlanguage-uls-menu.selector-right:after{ border-left:10px solid #f8f9fa; right:-10px}.interlanguage-uls-menu.selector-left:before{ border-right:10px solid #c8ccd1; left:-11px}.interlanguage-uls-menu.selector-left:after{ border-right:10px solid #f8f9fa; left:-10px}</style><style>
+.ve-activated .ve-init-mw-desktopArticleTarget-editableContent #toc,.ve-activated #siteNotice,.ve-activated .mw-indicators,.ve-activated #t-print,.ve-activated #t-permalink,.ve-activated #p-coll-print_export,.ve-activated #t-cite,.ve-deactivating .ve-ui-surface,.ve-active .ve-init-mw-desktopArticleTarget-editableContent,.ve-active .ve-init-mw-tempWikitextEditorWidget{display:none} .ve-activating .ve-ui-surface{height:0;padding:0 !important; overflow:hidden} .ve-loading #content > :not(.ve-init-mw-desktopArticleTarget-loading-overlay), .ve-activated .ve-init-mw-desktopArticleTarget-uneditableContent{pointer-events:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;opacity:0.5}.ve-activated #catlinks{cursor:pointer}.ve-activated #catlinks a{opacity:1} .ve-activated #content{position:relative} .ve-init-mw-desktopArticleTarget-loading-overlay{position:absolute;top:1.25em;left:0;right:0;z-index:1;margin-top:-0.5em}.ve-init-mw-desktopArticleTarget-progress{height:1em;overflow:hidden;margin:0 25%}.ve-init-mw-desktopArticleTarget-progress-bar{height:1em;width:0}.ve-init-mw-desktopArticleTarget-toolbarPlaceholder{transition:height 250ms ease;height:0; } .oo-ui-element-hidden{display:none !important; } .mw-editsection{white-space:nowrap; unicode-bidi:-moz-isolate;unicode-bidi:-webkit-isolate;unicode-bidi:isolate}.mw-editsection-divider{color:#54595d} .ve-init-mw-desktopArticleTarget-progress{height:0.75em;border:1px solid #36c;background:#fff;border-radius:2px;box-shadow:0 0.1em 0 0 rgba(0,0,0,0.15)}.ve-init-mw-desktopArticleTarget-progress-bar{height:0.75em;background:#36c}.ve-init-mw-desktopArticleTarget-toolbarPlaceholder{border-bottom:1px solid #c8ccd1;box-shadow:0 1px 1px 0 rgba(0,0,0,0.1)}.ve-init-mw-desktopArticleTarget-toolbarPlaceholder-open{height:40px} .skin-vector .ve-init-mw-desktopArticleTarget-toolbar,.skin-vector .ve-init-mw-desktopArticleTarget-toolbarPlaceholder{font-size:0.875em; margin:-1.14em -1.14em 1.14em -1.14em; }@media screen and (min-width:982px){.skin-vector .ve-init-mw-desktopArticleTarget-toolbar,.skin-vector .ve-init-mw-desktopArticleTarget-toolbarPlaceholder{ margin:-1.43em -1.71em 1.43em -1.71em}}</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="./Programación en C_Punteros - Wikilibros_files/load(2).php">
+<meta name="generator" content="MediaWiki 1.32.0-wmf.10">
+<meta name="referrer" content="origin">
+<meta name="referrer" content="origin-when-crossorigin">
+<meta name="referrer" content="origin-when-cross-origin">
+<link rel="alternate" type="application/x-wiki" title="Editar" href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;action=edit">
+<link rel="edit" title="Editar" href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;action=edit">
+<link rel="shortcut icon" href="https://es.wikibooks.org/static/favicon/wikibooks.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="https://es.wikibooks.org/w/opensearch_desc.php" title="Wikilibros (es)">
+<link rel="EditURI" type="application/rsd+xml" href="https://es.wikibooks.org/w/api.php?action=rsd">
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">
+<link rel="alternate" type="application/atom+xml" title="Suministro Atom de Wikilibros" href="https://es.wikibooks.org/w/index.php?title=Especial:CambiosRecientes&amp;feed=atom">
+<link rel="canonical" href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros">
+<link rel="dns-prefetch" href="https://login.wikimedia.org/">
+<link rel="dns-prefetch" href="https://meta.wikimedia.org/">
+<!--[if lt IE 9]><script src="/w/load.php?debug=false&amp;lang=es&amp;modules=html5shiv&amp;only=scripts&amp;skin=vector&amp;sync=1"></script><![endif]-->
+<script src="./Programación en C_Punteros - Wikilibros_files/load(3).php"></script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Programación_en_C_Punteros rootpage-Programación_en_C skin-vector action-view">		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			<div id="siteNotice" class="mw-body-content"><div id="centralNotice"></div><!-- CentralNotice --></div><div class="mw-indicators mw-body-content">
+</div>
+<h1 id="firstHeading" class="firstHeading" lang="es">Programación en C/Punteros</h1><div class="title-shortlink-container"><a class="title-shortlink" href="https://es.wikibooks.org/s/3u7">https://es.wikibooks.org/s/3u7</a></div>			<div id="bodyContent" class="mw-body-content">
+				<div id="siteSub" class="noprint">De Wikilibros, la colección de libros de texto de contenido libre.</div>				<div id="contentSub"><span class="subpages">&lt; <a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C" title="Programación en C">Programación en C</a></span></div>
+				<div id="jump-to-nav"></div>				<a class="mw-jump-link" href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros#mw-head">Ir a la navegación</a>
+				<a class="mw-jump-link" href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros#p-search">Ir a la búsqueda</a>
+				<div id="mw-content-text" lang="es" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc"><div class="toctitle" lang="es" dir="ltr"><h2>Sumario</h2><span class="toctoggle">&nbsp;[<a role="button" tabindex="0" class="togglelink">ocultar</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros#Concepto"><span class="tocnumber">1</span> <span class="toctext">Concepto</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros#Declarando_punteros"><span class="tocnumber">2</span> <span class="toctext">Declarando punteros</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros#Explicaci%C3%B3n"><span class="tocnumber">3</span> <span class="toctext">Explicación</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros#Operadores"><span class="tocnumber">4</span> <span class="toctext">Operadores</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros#Operaciones_Aritm%C3%A9ticas"><span class="tocnumber">5</span> <span class="toctext">Operaciones Aritméticas</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros#Punteros_Constantes"><span class="tocnumber">6</span> <span class="toctext">Punteros Constantes</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros#Punteros_Gen%C3%A9ricos"><span class="tocnumber">7</span> <span class="toctext">Punteros Genéricos</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros#Punteros_y_Matrices"><span class="tocnumber">8</span> <span class="toctext">Punteros y Matrices</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros#Punteros_a_cadenas_de_caracteres"><span class="tocnumber">9</span> <span class="toctext">Punteros a cadenas de caracteres</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros#Matrices_de_Punteros"><span class="tocnumber">10</span> <span class="toctext">Matrices de Punteros</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros#Punteros_a_Punteros"><span class="tocnumber">11</span> <span class="toctext">Punteros a Punteros</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros#Matrices_de_punteros_a_cadenas_de_caracteres"><span class="tocnumber">12</span> <span class="toctext">Matrices de punteros a cadenas de caracteres</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros#Ejemplos"><span class="tocnumber">13</span> <span class="toctext">Ejemplos</span></a>
+<ul>
+<li class="toclevel-2 tocsection-14"><a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros#Asignando_valores_a_punteros"><span class="tocnumber">13.1</span> <span class="toctext">Asignando valores a punteros</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Concepto">Concepto</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;action=edit&amp;section=1" title="Editar sección: Concepto">editar</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>Un puntero es una variable que <b>contiene la dirección de memoria</b> de un dato o de otra variable que contiene al dato en un arreglo. Esto quiere decir, que el puntero apunta al espacio físico donde está el dato o la variable. Un puntero puede apuntar a un objeto de cualquier tipo, como por ejemplo, a una estructura o una función. Los punteros se pueden utilizar para referencia y manipular estructuras de datos, para referenciar bloques de memoria asignados dinámicamente y para proveer el paso de argumentos por referencias en las llamadas a funciones.
+</p><p>Muchas de las funciones estándares de C, trabajan con punteros, como es el caso del <b>scanf</b> o <b>strcpy</b>. Estas funciones reciben o devuelve un valor que es un puntero.
+Por ejemplo: A <b>scanf</b> se le pasa la dirección de memoria del dato a leer...
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">char</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">scanf</span> <span class="p">(</span><span class="s">"%c"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+</pre></div>
+<p>En este caso se le pasa la dirección de memoria de la variable <b>a</b>, la cual tiene reservado un espacio en la memoria por el compilador. Podríamos hacer lo mismo con este código:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">char</span> <span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span> <span class="n">malloc</span> <span class="p">(</span><span class="k">sizeof</span> <span class="p">(</span><span class="kt">char</span><span class="p">));</span>
+<span class="n">scanf</span> <span class="p">(</span><span class="s">"%c"</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+</pre></div>
+<p>En este código, al scanf le pasamos el puntero en sí. El puntero es una variable, como bien se ha dicho anteriormente, que contiene una dirección de memoria, por tanto, no es necesario el uso de <b>&amp;</b>
+para pasarle la dirección de memoria a scanf. Anteriormente hemos tenido que reservar un espacio de memoria con malloc(), que se verá su uso más adelante.
+</p><p>Este código sería erróneo y daría una violacion de segmento:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">char</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+<span class="n">scanf</span> <span class="p">(</span><span class="s">"%c"</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+</pre></div>
+<p>En este caso, no hemos reservado memoria, por lo tanto la función escribirá en una dirección de memoria que no le pertenece, y por ello se producirá la susodicha violación de segmento.
+</p>
+<h1><span class="mw-headline" id="Declarando_punteros">Declarando punteros</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;action=edit&amp;section=2" title="Editar sección: Declarando punteros">editar</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>Ya se dijo que un puntero es una variable que guarda la dirección de memoria de otra variable, haciendo lógica a esto, decimos que un puntero se declara igual que cualquier otra variable, pero anteponiendo un <b>*</b> (asterisco) antes del nombre de la variable.
+</p><p><b>Su sintaxis sería:</b>
+</p>
+<dl><dd>tipo *NombrePuntero = NULL; Se iguala a NULL para saber que no tiene asignada ninguna dirección.</dd></dl>
+<p>Donde tipo es el tipo de dato al que referenciará este puntero, es decir, que si se necesita guardar la dirección de memoria de un dato <b>int</b>, se necesita un puntero de tipo <b>int</b>.
+</p>
+<h1><span id="Explicaci.C3.B3n"></span><span class="mw-headline" id="Explicación">Explicación</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;action=edit&amp;section=3" title="Editar sección: Explicación">editar</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p><b>Veamos el siguiente código:</b>
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="c1">//Declaración de variable entera de tipo entero</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">puntero</span><span class="p">;</span> <span class="c1">//Declaración de variable puntero de tipo entero</span>
+<span class="n">puntero</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span> <span class="c1">//Asignación de la dirección memoria de a</span>
+
+<span class="n">printf</span><span class="p">(</span><span class="s">"El valor de a es: %d. </span><span class="se">\n</span><span class="s">El valor de *puntero es: %d. </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="o">*</span><span class="n">puntero</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"La dirección de memoria de *puntero es: %p"</span><span class="p">,</span><span class="n">puntero</span><span class="p">);</span>
+
+<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<p><br>
+Igual que cuando usamos un &amp;, en la lectura de datos con scanf, igual de esta forma lo usamos aquí, tal vez te acordarás que decíamos que las cadenas de caracteres (%s) no usaban este operador, esto es porque en una cadena de caracteres es un arreglo de caracteres, por lo que el primer carácter es la dirección de inicio de la cadena.
+</p><p>El operador *, nos permite acceder al valor de la direccion del puntero, en este caso nos permite acceder al valor que contiene a la variable a. De esta forma "a" y "*puntero" muestran el mismo dato, pero esto no quiere decir que sea lo mismo, uno es un entero y el otro un puntero.
+</p><p>La impresión con&nbsp;%p, es para poder imprimir la dirección de memoria en valor hexadecimal (0x...), también podemos imprimir: <b>...%p",&amp;a)</b> y funciona de la misma forma, y es lógico que tanto "a" como "puntero" tienen la misma dirección de memoria.
+</p><p><b>¿Diferentes direcciones?</b>
+</p><p>Tal vez notaste que en cada ejecución la dirección de memoria cambia, esto es porque es el sistema operativo quien está encargado de administrar la memoria y es éste quien dice qué espacios podrá tomar el programa.
+</p><p>Esto quiere decir que uno no puede asignarle una dirección de memoria a un puntero <b>directamente</b>, es decir yo no puedo hacer lo siguiente.
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">int</span> <span class="o">*</span><span class="n">puntero</span><span class="o">=</span><span class="mh">0xbfc5b1c8</span><span class="p">;</span>
+</pre></div>
+<p>Esto no puedo ni debo hacerlo ya que yo no sé que está haciendo esta dirección de memoria, si el sistema la tiene o no disponible, etc...
+Pero sí puedo hacer esto:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">int</span> <span class="o">*</span><span class="n">puntero</span><span class="o">=</span><span class="nb">NULL</span><span class="p">;</span>
+</pre></div>
+<p>NULL, es el espacio en memoria con dirección 0, esto quiere decir que existe, lo que significa que le asignamos una direccion válida al puntero, pero el valor que tiene NULL no se nos permite modificarlo, ya que pertenece al sistema.
+</p>
+<h1><span class="mw-headline" id="Operadores">Operadores</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;action=edit&amp;section=4" title="Editar sección: Operadores">editar</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>Ya anteriormente te poníamos algunos ejemplos de como asignar la dirección de memoria a un puntero y de como acceder al valor de este.
+</p><p><b>Operador de Dirección (&amp;):</b> Este nos permite acceder a la dirección de memoria de una variable.
+</p><p><b>Operador de Indirección (*):</b> Además de que nos permite declarar un tipo de dato puntero, también nos permite ver el VALOR que está en la dirección asignada.
+</p><p><b>Incrementos (++) y Decrementos (--):</b> Te darás cuenta que puedes usar un puntero como si de un array se tratase, es por esto que permite estos operadores.
+</p><p>De lo anterior podemos decir que:
+</p><p>int a; int *puntero=&amp;a;
+printf("%d",a); <b>Es Igual</b> printf("%d",*puntero);
+</p>
+<h1><span id="Operaciones_Aritm.C3.A9ticas"></span><span class="mw-headline" id="Operaciones_Aritméticas">Operaciones Aritméticas</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;action=edit&amp;section=5" title="Editar sección: Operaciones Aritméticas">editar</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>Un puntero nos permite sumar o restar números enteros, pero su funcionamiento ahora es de posiciones, es decir que nos permitirá movernos a la siguiente dirección de memoria.
+</p><p>A un puntero no se le puede realizar multiplicaciones, divisiones, sumas o restas con otro puntero o con un valor de tipo coma flotante (float, double...). Esto es por que un puntero no es un valor, sólo es una dirección.
+</p><p>En un puntero se pueden realizar varias operaciones de tipo enteras, pero en dependencia de como se usen, sus resultados pueden ser muy diferentes, a continuación les muestro algunas de estas operaciones:
+</p><p><br>
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">//Definamos estas variables:</span>
+<span class="kt">int</span> <span class="n">x</span><span class="p">[</span><span class="mi">100</span><span class="p">],</span><span class="n">b</span><span class="p">,</span><span class="o">*</span><span class="n">pa</span><span class="p">,</span><span class="o">*</span><span class="n">pb</span><span class="p">;</span>
+<span class="c1">//...</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">50</span><span class="p">]</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span> <span class="c1">//Le asignamos el valor de 10, al array #50</span>
+<span class="n">pa</span><span class="o">=&amp;</span><span class="n">x</span><span class="p">[</span><span class="mi">50</span><span class="p">];</span> <span class="c1">//Le asignamos al puntero pa, la direccion de memoria que tiene x[50]</span>
+
+<span class="c1">//Ahora mostramos algunas posibles operaciones:</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="o">*</span><span class="n">pa</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="c1">//Esto es como decir el valor que tiene el array de x[50] sumarle 1.</span>
+           <span class="c1">//Esto es igual a: b=x[50]+1; =&gt; Su valor seria igual a 11.</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">pa</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span> <span class="c1">//Esto primero pasa a la siguiente direccion de memoria y luego lo referencia</span>
+             <span class="c1">//El resultado es: b = x[51];</span>
+
+<span class="n">pb</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span> <span class="c1">//al puntero pb se le asigna la direccion de x[10]</span>
+
+<span class="o">*</span><span class="n">pb</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//Al valor que tiene el puntero se le asigna 0</span>
+             <span class="c1">//Esto es igual que decir: x[10] = 0</span>
+
+<span class="o">*</span><span class="n">pb</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//El valor del puntero se incrementa en dos unidades, es decir x[10] += 2</span>
+
+<span class="p">(</span><span class="o">*</span><span class="n">pb</span><span class="p">)</span><span class="o">--</span><span class="p">;</span> <span class="c1">//El valor del puntero se decrementa en una unidad.</span>
+
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">*</span><span class="n">pb</span><span class="o">--</span><span class="p">;</span> <span class="c1">//A x[0] se le pasa el valor de x[10] y el puntero pb, pasa a apuntar a x[9]</span>
+              <span class="c1">//recuerda, que -- es post-decremento, primero asignará y luego restará.</span>
+</pre></div>
+<h1><span class="mw-headline" id="Punteros_Constantes">Punteros Constantes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;action=edit&amp;section=6" title="Editar sección: Punteros Constantes">editar</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>Es posible que hayas pensado como declarar un puntero como una constante, tal vez pensaste en un <b>#define</b>, o en un atributo <b>const</b>. Bueno es posible usar el atributo const, pero para un puntero hay que hacerlo de otra forma.
+</p><p><b>FORMA ERRADA:</b>
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mi">20</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span> <span class="c1">//objeto constante y puntero variable</span>
+<span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span> <span class="c1">// ERROR: el valor apuntado por p es constante.</span>
+<span class="n">p</span><span class="o">=&amp;</span><span class="n">b</span><span class="p">;</span> <span class="c1">//Correcto: p pasa a apuntar a un nuevo objeto.</span>
+</pre></div>
+<p>Pero de esta forma no es muy útil declararlo, pues el que hicimos constante fue el valor al que apunte p, es decir, mejor hubiésemos hecho que el puntero fuese una constante.
+</p><p><b>FORMA CORRECTA:</b>
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mi">20</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span> <span class="k">const</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span> <span class="c1">//objeto variable y puntero constante</span>
+<span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span> <span class="c1">// Correcto: El valor apuntado es variable.</span>
+<span class="n">p</span><span class="o">=&amp;</span><span class="n">b</span><span class="p">;</span> <span class="c1">//ERROR: p es constante.</span>
+</pre></div>
+<h1><span id="Punteros_Gen.C3.A9ricos"></span><span class="mw-headline" id="Punteros_Genéricos">Punteros Genéricos</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;action=edit&amp;section=7" title="Editar sección: Punteros Genéricos">editar</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>Un puntero a cualquier tipo de dato puede convertirse a un puntero del tipo void *. Por esto un puntero a <b>void *</b>, recibe el nombre de <b>puntero genérico</b>.
+</p><p>En C, se permite la conversión implícita de punteros, pero en C++ esto no es posible, así que por compatibilidad y buena practica recomendamos usar la conversión explícita (cast).
+</p><p>Supongamos:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">int</span> <span class="o">*</span><span class="n">puntero</span><span class="p">;</span>
+<span class="n">funcion</span> <span class="p">(</span><span class="o">*</span><span class="n">puntero</span><span class="p">);</span>
+<span class="p">....</span>
+<span class="kt">void</span> <span class="n">funcion</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">p</span><span class="p">)</span>
+
+<span class="kt">int</span> <span class="o">*</span><span class="n">q</span><span class="p">;</span>
+<span class="n">q</span><span class="o">=</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">p</span><span class="p">;</span> <span class="c1">//En C se podria hacer q = p;</span>
+</pre></div>
+<p>Es decir que un puntero a void se puede usar sin importar el tipo de dato, recuerden que uno no puede trabajar con punteros que referencia a un tipo de dato diferente, como lo es un puntero a char, con un puntero a int.
+</p>
+<h1><span class="mw-headline" id="Punteros_y_Matrices">Punteros y Matrices</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;action=edit&amp;section=8" title="Editar sección: Punteros y Matrices">editar</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>Anteriormente decíamos que una matriz es una secuencia de espacios en memoria, que nos permitían alojar datos en cada uno y un puntero es una variable que guarda la dirección de memoria, también decíamos como recorre las direcciones de memoria con los operadores ++ y --.
+</p><p>Aquí veremos como puede usarse un puntero como si de una matriz se tratase, luego de que veas que es técnicamente lo mismo, te preguntaras por que usar punteros, pero estos son muy necesarios y únicos que nos permiten realizar cosas que con un array normal, no se puede, como asignarle memoria dinámica, etc...
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+
+<span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">};</span> <span class="c1">//Declarar e inicializar un array.</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">puntero</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">//Le damos la dirección de inicio del array</span>
+<span class="kt">int</span> <span class="n">i</span><span class="p">;</span> <span class="c1">//variable contadora...</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="o">*</span><span class="p">(</span><span class="n">puntero</span><span class="o">+</span><span class="n">i</span><span class="p">));</span> <span class="c1">//imprimimos los valores del puntero.</span>
+
+<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<p><br>
+Habrás notado que he usado *(puntero+i), así como explica la sección de operaciones aritméticas, pero también podemos acceder de otras maneras como lo son:
+</p>
+<pre>array[i] =&gt; Accede como un array normal
+*(array+i) =&gt; También accede como un array normal.
+puntero[i] =&gt; Accedemos al valor de puntero sub i
+*(puntero+i) =&gt; Accedemos al valor de puntero + i.
+</pre>
+<h1><span class="mw-headline" id="Punteros_a_cadenas_de_caracteres">Punteros a cadenas de caracteres</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;action=edit&amp;section=9" title="Editar sección: Punteros a cadenas de caracteres">editar</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>Ya hemos visto el uso que se le puede dar a un puntero como si de un array se tratase, entonces usando esta misma lógica podemos hacer un array de caracteres usando punteros. 
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">char</span> <span class="o">*</span><span class="n">nombre</span><span class="o">=</span><span class="s">"Gustavo A. Chavarria"</span><span class="p">;</span><span class="c1">//Es como un array de 20 caracteres</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span><span class="n">nombre</span><span class="p">);</span>
+</pre></div>
+<p>Sin embargo al tratarse de una constante de caracteres no podemos modificarla despues de definir sus valores. Como por ejemplo no podemos remplazar un carácter, o leer un nuevo valor.
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="n">gets</span><span class="p">(</span><span class="n">nombre</span><span class="p">);</span> <span class="c1">//ERROR en ejecución</span>
+</pre></div>
+<p>Para poder modificar el valor de este puntero, este tendría que apuntar a una dirección que no sea una constante, como un array.
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">char</span> <span class="n">nombre</span><span class="p">[]</span><span class="o">=</span><span class="s">"Gustavo A. Chavarria"</span><span class="p">;</span> <span class="c1">//declaramos un array de caracteres</span>
+<span class="kt">char</span> <span class="o">*</span><span class="n">puntero</span><span class="o">=</span><span class="n">nombre</span><span class="p">;</span><span class="c1">//Asignamos al puntero el comienzo del array</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%s </span><span class="se">\n</span><span class="s">Ingrese otro nombre: "</span><span class="p">,</span><span class="n">puntero</span><span class="p">);</span><span class="c1">//Escribimos en pantalla nombre...</span>
+<span class="n">gets</span><span class="p">(</span><span class="n">puntero</span><span class="p">);</span> <span class="c1">//leemos otro nombre</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span><span class="n">puntero</span><span class="p">);</span> <span class="c1">//escribimos el nuevo nombre...</span>
+</pre></div>
+<p>Esta vez pudiste notar que si se pudo remplazar el valor del nombre, pero aun la cantidad de caracteres esta limitada por el array original, mas adelante veremos como solucionar esto con memoria dinámica.
+</p>
+<h1><span class="mw-headline" id="Matrices_de_Punteros">Matrices de Punteros</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;action=edit&amp;section=10" title="Editar sección: Matrices de Punteros">editar</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>Es muy probable que ya te hayas dicho: Si un puntero es una variable, ¿Puedo tener un array de punteros? La respuesta seria NO Exactamente.
+</p><p>Como ya habiamos explicado antes, un puntero trabaja de la misma forma que un array, tanto que podemos decir que un puntero es un array, entonces si definimos un array de un array, nos daría como resultados un array bidimensional.
+</p><p>En la practica es mucho mas común utilizar un array de punteros que un array bidimensional.
+</p><p>Hay que recordar que siguen siendo punteros, es decir sólo apuntan a una dirección de memoria, por ende hay que asignarles la dirección de memoria a cada uno de los elementos del puntero. Sin embargo podemos asignar en un solo ciclo todas las filas.
+</p><p>Ejemplo:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+
+<span class="kt">int</span> <span class="o">*</span><span class="n">puntero</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span> <span class="c1">//array de puntero</span>
+<span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">];</span> <span class="c1">//Array bidimensional.</span>
+<span class="kt">int</span> <span class="n">i</span><span class="p">;</span> 
+
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">puntero</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="c1">//Asignamos las filas al puntero.</span>
+<span class="p">}</span>
+<span class="c1">//Pueden imprimir tambien en un ciclo</span>
+<span class="c1">//Tambien pueden acceder mediante un ciclo anidado a la variables del puntero[i][j]</span>
+
+<span class="p">}</span>
+</pre></div>
+<h1><span class="mw-headline" id="Punteros_a_Punteros">Punteros a Punteros</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;action=edit&amp;section=11" title="Editar sección: Punteros a Punteros">editar</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>Es una variable que contiene la dirección de memoria de un puntero, el cual a su vez contiene la dirección de memoria de un tipo de dato. Recuerden que un puntero sigue siendo un espacio en memoria, pero en vez de almacenar un valor almacena una dirección.
+</p><p>Si decimos que:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="c1">//Supongamos que es una variable cuya direccion es 0x1601</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">puntero1</span><span class="o">=&amp;</span><span class="n">a</span><span class="p">;</span> <span class="c1">//El puntero tiene guardada la direccion de a, </span>
+                  <span class="c1">//pero este tiene como direccion 0x1890</span>
+<span class="kt">int</span> <span class="o">**</span><span class="n">puntero2</span><span class="o">=&amp;</span><span class="n">puntero1</span><span class="p">;</span> <span class="c1">//**puntero 2 guarda la direccion 0x1890</span>
+</pre></div>
+<p>Ahora se entiende mejor. Al uso de punteros se le llama variables con niveles de indireccion, ya que no apuntan directamente a un valor, sino que apuntan a alguien que lo tiene. Basándonos en esto podemos decir que *puntero1 es un puntero con un nivel de indireccion y *puntero2 es un puntero con dos niveles de indireccion.
+</p><p>En general estos tipos de datos son usados con matrices multidimensionales.
+</p>
+<h1><span class="mw-headline" id="Matrices_de_punteros_a_cadenas_de_caracteres">Matrices de punteros a cadenas de caracteres</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;action=edit&amp;section=12" title="Editar sección: Matrices de punteros a cadenas de caracteres">editar</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>No hablaremos sobre este tema, debido a que es prácticamente una matriz de caracteres que se usa mediante punteros, y esto es técnicamente lo mismo que hemos estado viendo anteriormente.
+</p><p>También podemos usar punteros a punteros y guardar múltiples cadenas.
+</p>
+<h1><span class="mw-headline" id="Ejemplos">Ejemplos</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;action=edit&amp;section=13" title="Editar sección: Ejemplos">editar</a><span class="mw-editsection-bracket">]</span></span></h1>
+<p>Tenga en cuenta el siguiente bloque de código que declara 2 punteros
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="cm">/*1*/</span> <span class="k">struct</span> <span class="n">MyStruct</span> <span class="p">{</span>
+<span class="cm">/*2*/</span> <span class="kt">int</span> <span class="n">m_aNumber</span><span class="p">;</span>
+<span class="cm">/*3*/</span> <span class="kt">float</span> <span class="n">num2</span><span class="p">;</span>
+<span class="cm">/*4*/</span> <span class="p">};</span>
+<span class="cm">/*5*/</span> 
+<span class="cm">/*6*/</span> <span class="kt">int</span> <span class="o">*</span> <span class="n">pJ2</span><span class="p">;</span>
+<span class="cm">/*7*/</span> <span class="k">struct</span> <span class="n">MyStruct</span> <span class="o">*</span> <span class="n">pAnItem</span><span class="p">;</span>
+</pre></div>
+<p>Las primeras 4 líneas definen la estructura. La linea 6 declara una variable que apuntará a un entero, y la línea 7 declara una variable que apunta a algo de la estructura MyStruct. Entonces declarar un puntero es algo que apunta a algo de algún tipo, más que contener el tipo. El asterisco (<code>*</code>) se coloca antes del nombre de la variable.
+</p><p>En las siguientes líneas de código, <code>var1</code> es un puntero a un entero largo (<code>long</code>) mientras <code>var2</code> es un entero largo (<code>long</code>) y no un puntero a un entero largo. En la segunda línea se declara <code>p3</code> como un puntero a un puntero de un entero.
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span>	<span class="kt">long</span> <span class="o">*</span> <span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="o">**</span> <span class="n">p3</span><span class="p">;</span>
+</pre></div>
+<p>Los punteros se usan habitualmente como parámetros de funciones. El siguiente código muestra como declarar una función que usa un puntero como argumento. Teniendo en cuenta que C pasa todos los argumentos por valor, para poder modificar un valor desde el código de la función, se debe usar un puntero al valor a modificar. También se usan punteros a estructuras como argumentos de una función aún cuando la estructura no sea modificada dentro de la función. Esto es realizado para evitar copiar todo el contenido de la estructura dentro de la pila.
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span>	<span class="kt">int</span> <span class="nf">MyFunction</span><span class="p">(</span> <span class="k">struct</span> <span class="n">MyStruct</span> <span class="o">*</span><span class="n">pStruct</span> <span class="p">);</span>
+</pre></div>
+<h3><span class="mw-headline" id="Asignando_valores_a_punteros">Asignando valores a punteros</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;action=edit&amp;section=14" title="Editar sección: Asignando valores a punteros">editar</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Continuamos con el proceso de asignar valores a los punteros, para esto utilizamos el operador <code>&amp;</code> o 'la dirección de'.
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span>	<span class="kt">int</span> <span class="n">myInt</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="o">*</span><span class="n">pPointer</span><span class="p">;</span>
+	<span class="k">struct</span> <span class="n">MyStruct</span> <span class="n">dvorak</span><span class="p">;</span>
+	<span class="k">struct</span> <span class="n">MyStruct</span> <span class="o">*</span><span class="n">pKeyboard</span><span class="p">;</span>
+
+	<span class="n">pPointer</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">myInt</span><span class="p">;</span>
+	<span class="n">pKeyboard</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">dvorak</span><span class="p">;</span>
+</pre></div>
+<p>Aquí, pPointer apuntara a myInt y pKeyboard apuntara a dvorak.
+</p><p>Los punteros también pueden ser asignados a referencias de memorias dinamicas creadas comúnmente por las funciones malloc() y calloc().
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+	<span class="p">...</span>
+	<span class="k">struct</span> <span class="n">MyStruct</span> <span class="o">*</span><span class="n">pKeyboard</span><span class="p">;</span>
+	<span class="p">...</span>
+	<span class="n">pKeyboard</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">MyStruct</span><span class="p">));</span>
+	<span class="p">...</span>
+</pre></div>
+<p>La función malloc retorna un puntero de memoria asignada de manera dinámica (o NULL si falla). El tamaño de esta memoria es definido de modo que pueda contener la estructura MyStruct
+</p><p>El siguiente código es un ejemplo mostrando un puntero siendo asignado a una referencia y se retorna el valor del puntero en la función.
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="k">static</span> <span class="k">struct</span> <span class="n">MyStruct</span> <span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">,</span> <span class="n">val3</span><span class="p">,</span> <span class="n">val4</span><span class="p">;</span>
+<span class="p">...</span>
+<span class="k">struct</span> <span class="n">MyStruct</span> <span class="o">*</span><span class="n">ASillyFunction</span><span class="p">(</span> <span class="kt">int</span> <span class="n">b</span> <span class="p">)</span>
+<span class="p">{</span>
+	<span class="k">struct</span> <span class="n">MyStruct</span> <span class="o">*</span><span class="n">myReturn</span><span class="p">;</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="n">myReturn</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">val1</span><span class="p">;</span>
+	<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">b</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span> <span class="n">myReturn</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">val2</span><span class="p">;</span>
+	<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">b</span><span class="o">==</span><span class="mi">3</span><span class="p">)</span> <span class="n">myReturn</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">val3</span><span class="p">;</span>
+	<span class="k">else</span> <span class="n">myReturn</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">val4</span><span class="p">;</span>
+ 
+	<span class="k">return</span> <span class="n">myReturn</span><span class="p">;</span>
+<span class="p">}</span>
+	<span class="p">...</span>
+	<span class="k">struct</span> <span class="n">MyStruct</span> <span class="o">*</span><span class="n">strPointer</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span> <span class="o">*</span><span class="n">d</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">j</span><span class="p">;</span>
+	<span class="p">...</span>
+	<span class="n">c</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">;</span> <span class="cm">/* puntero asignado usando el operador &amp; */</span>
+	<span class="n">d</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span> <span class="cm">/* asignando un puntero a otro */</span>
+	<span class="n">strPointer</span> <span class="o">=</span> <span class="n">ASillyFunction</span><span class="p">(</span> <span class="mi">3</span> <span class="p">);</span> <span class="cm">/* puntero retornado de la funcion */</span>
+</pre></div>
+<p>Cuando se retorna un puntero de una funcion, se tiene que tener cuidado de que el valor apuntado no sea de una referencia de una variable local a la funcion, porque estos valores desaparecen despues de salir de la funcion y el puntero estaria mal referenciado, causando errores en tiempo de ejecucion en el programa. La memoria creada dinamicamente dentro de la funcion puede devolverse como puntero, el valor de retorno aunque es creado en una variable local la direccion como tal se devuelve por valor dejando esta informacion valida.
+</p><p><br>
+</p>
+<table class="noprint" id="toc" style="width: 100%"><tbody><tr>
+<td style="text-align: left; width: 33%"><a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Estructuras_y_Uniones" title="Programación en C/Estructuras y Uniones">← Estructuras y Uniones</a></td>
+<td style="text-align: center; width: 33%"><b>Punteros</b></td>
+<td style="text-align: right; width: 33%"><a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Manejo_din%C3%A1mico_de_memoria" title="Programación en C/Manejo dinámico de memoria">Manejo dinámico de memoria →</a></td>
+</tr></tbody></table>
+<p><br>
+</p>
+<!-- 
+NewPP limit report
+Parsed by mw1269
+Cached time: 20180709202902
+Cache expiry: 1900800
+Dynamic content: false
+CPU time usage: 0.088 seconds
+Real time usage: 4.317 seconds
+Preprocessor visited node count: 206/1000000
+Preprocessor generated node count: 0/1500000
+Post‐expand include size: 871/2097152 bytes
+Template argument size: 146/2097152 bytes
+Highest expansion depth: 5/40
+Expensive parser function count: 0/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 23146/5000000 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    6.121      1 Plantilla:Navegar
+100.00%    6.121      1 -total
+ 47.03%    2.879      1 Plantilla:AutoCategoría
+-->
+</div>
+<!-- Saved in parser cache with key eswikibooks:pcache:idhash:10159-0!canonical and timestamp 20180709202858 and revision id 353152
+ -->
+<noscript><img src="//es.wikibooks.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>					<div class="printfooter">
+						Obtenido de «<a dir="ltr" href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;oldid=353152">https://es.wikibooks.org/w/index.php?title=Programación_en_C/Punteros&amp;oldid=353152</a>»					</div>
+				<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://es.wikibooks.org/wiki/Especial:Categor%C3%ADas" title="Especial:Categorías">Categoría</a>: <ul><li><a href="https://es.wikibooks.org/wiki/Categor%C3%ADa:Programaci%C3%B3n_en_C" title="Categoría:Programación en C">Programación en C</a></li></ul></div></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Menú de navegación</h2>
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Herramientas personales</h3>
+						<ul>
+							<li id="pt-anonuserpage">No has accedido</li><li id="pt-anontalk"><a href="https://es.wikibooks.org/wiki/Especial:MiDiscusi%C3%B3n" title="Discusión sobre ediciones hechas desde esta dirección IP [alt-shift-n]" accesskey="n">Discusión</a></li><li id="pt-anoncontribs"><a href="https://es.wikibooks.org/wiki/Especial:MisContribuciones" title="Una lista de modificaciones hechas desde esta dirección IP [alt-shift-y]" accesskey="y">Contribuciones</a></li><li id="pt-createaccount"><a href="https://es.wikibooks.org/w/index.php?title=Especial:Crear_una_cuenta&amp;returnto=Programaci%C3%B3n+en+C%2FPunteros" title="Te recomendamos crear una cuenta e iniciar sesión; sin embargo, no es obligatorio">Crear una cuenta</a></li><li id="pt-login"><a href="https://es.wikibooks.org/w/index.php?title=Especial:Entrar&amp;returnto=Programaci%C3%B3n+en+C%2FPunteros" title="Te recomendamos iniciar sesión, aunque no es obligatorio [alt-shift-o]" accesskey="o">Acceder</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Espacios de nombres</h3>
+						<ul>
+							<li id="ca-nstab-main" class="selected"><span><a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros" title="Ver la página de contenido [alt-shift-c]" accesskey="c">Página</a></span></li><li id="ca-talk" class="new"><span><a href="https://es.wikibooks.org/w/index.php?title=Discusi%C3%B3n:Programaci%C3%B3n_en_C/Punteros&amp;action=edit&amp;redlink=1" rel="discussion" title="Discusión acerca de la página de contenido (la página no existe) [alt-shift-t]" accesskey="t">Discusión</a></span></li>						</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label">
+						<h3 id="p-variants-label">
+							<span>Variantes</span>
+						</h3>
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Vistas</h3>
+						<ul>
+							<li id="ca-view" class="collapsible selected"><span><a href="https://es.wikibooks.org/wiki/Programaci%C3%B3n_en_C/Punteros">Leer</a></span></li><li id="ca-edit" class="collapsible"><span><a href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;action=edit" title="Editar esta página [alt-shift-e]" accesskey="e">Editar</a></span></li><li id="ca-history" class="collapsible"><span><a href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;action=history" title="Versiones anteriores de esta página [alt-shift-h]" accesskey="h">Ver historial</a></span></li>						</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label" style="">
+						<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>Más</span></h3>
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Buscar</label>
+						</h3>
+						<form action="https://es.wikibooks.org/w/index.php" id="searchform">
+							<div id="simpleSearch">
+								<input type="search" name="search" placeholder="Buscar en Wikilibros" title="Buscar en este wiki [alt-shift-f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Especial:Buscar" name="title"><input type="submit" name="go" value="Ir" title="Ir a la página con este nombre exacto si existe" id="searchButton" class="searchButton">							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="https://es.wikibooks.org/wiki/Portada" title="Visitar la página principal"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navegación</h3>
+			<div class="body">
+								<ul>
+					<li id="n-mainpage"><a href="https://es.wikibooks.org/wiki/Portada" title="Visitar la página principal [alt-shift-z]" accesskey="z">Portada</a></li><li id="n-currentevents"><a href="https://es.wikibooks.org/wiki/Categor%C3%ADa:Libros" title="Encuentra información de contexto sobre acontecimientos actuales">Categorías de libros</a></li><li id="n-recentchanges"><a href="https://es.wikibooks.org/wiki/Especial:CambiosRecientes" title="Lista de cambios recientes en el wiki [alt-shift-r]" accesskey="r">Cambios recientes</a></li><li id="n-newpages"><a href="https://es.wikibooks.org/wiki/Especial:P%C3%A1ginasNuevas">Páginas nuevas</a></li><li id="n-randompage"><a href="https://es.wikibooks.org/wiki/Especial:Aleatoria" title="Cargar un libro seleccionado al azar [alt-shift-x]" accesskey="x">Libro aleatorio</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="El lugar para aprender">Ayuda</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_es.wikibooks.org&amp;uselang=es" title="Apóyanos">Donaciones</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-Comunidad" aria-labelledby="p-Comunidad-label">
+			<h3 id="p-Comunidad-label">Comunidad</h3>
+			<div class="body">
+								<ul>
+					<li id="n-Café"><a href="https://es.wikibooks.org/wiki/Wikilibros:Caf%C3%A9">Café</a></li><li id="n-portal"><a href="https://es.wikibooks.org/wiki/Wikilibros:Portal_de_la_comunidad" title="Acerca del proyecto, lo que puedes hacer, dónde encontrar información">Portal de la comunidad</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-Subproyectos" aria-labelledby="p-Subproyectos-label">
+			<h3 id="p-Subproyectos-label">Subproyectos</h3>
+			<div class="body">
+								<ul>
+					<li id="n-Recetario"><a href="https://es.wikibooks.org/wiki/Artes_culinarias">Recetario</a></li><li id="n-Wikichicos"><a href="https://es.wikibooks.org/wiki/Wikichicos">Wikichicos</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-coll-print_export" aria-labelledby="p-coll-print_export-label">
+			<h3 id="p-coll-print_export-label">Imprimir/exportar</h3>
+			<div class="body">
+								<ul>
+					<li id="coll-create_a_book"><a href="https://es.wikibooks.org/w/index.php?title=Especial:Libro&amp;bookcmd=book_creator&amp;referer=Programaci%C3%B3n+en+C%2FPunteros">Crear una colección</a></li><li id="coll-download-as-rdf2latex"><a href="https://es.wikibooks.org/w/index.php?title=Especial:ElectronPdf&amp;page=Programaci%C3%B3n+en+C%2FPunteros&amp;action=show-download-screen">Descargar como PDF</a></li><li id="t-print"><a href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;printable=yes" title="Versión imprimible de esta página [alt-shift-p]" accesskey="p">Versión para imprimir</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Herramientas</h3>
+			<div class="body">
+								<ul>
+					<li id="t-whatlinkshere"><a href="https://es.wikibooks.org/wiki/Especial:LoQueEnlazaAqu%C3%AD/Programaci%C3%B3n_en_C/Punteros" title="Lista de todas las páginas del wiki que enlazan aquí [alt-shift-j]" accesskey="j">Lo que enlaza aquí</a></li><li id="t-recentchangeslinked"><a href="https://es.wikibooks.org/wiki/Especial:CambiosEnEnlazadas/Programaci%C3%B3n_en_C/Punteros" rel="nofollow" title="Cambios recientes en las páginas que enlazan con esta [alt-shift-k]" accesskey="k">Cambios relacionados</a></li><li id="t-upload"><a href="https://commons.wikimedia.org/wiki/Special:UploadWizard?uselang=es" title="Subir archivos [alt-shift-u]" accesskey="u">Subir archivo</a></li><li id="t-specialpages"><a href="https://es.wikibooks.org/wiki/Especial:P%C3%A1ginasEspeciales" title="Lista de todas las páginas especiales [alt-shift-q]" accesskey="q">Páginas especiales</a></li><li id="t-permalink"><a href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;oldid=353152" title="Enlace permanente a esta versión de la página">Enlace permanente</a></li><li id="t-info"><a href="https://es.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;action=info" title="Más información sobre esta página">Información de la página</a></li><li id="t-cite"><a href="https://es.wikibooks.org/w/index.php?title=Especial:Citar&amp;page=Programaci%C3%B3n_en_C%2FPunteros&amp;id=353152" title="Información sobre cómo citar esta página">Citar esta página</a></li><li id="t-shorturl"><a href="https://es.wikibooks.org/s/3u7" title="Copie este enlace corto para compartirlo">Enlace corto</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-lang" aria-labelledby="p-lang-label"><button class="uls-settings-trigger" title="Opciones de idioma"></button>
+			<h3 id="p-lang-label">Idiomas</h3>
+			<div class="body">
+								<ul>
+									</ul>
+				<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-add wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:NewItem?site=eswikibooks&amp;page=Programaci%C3%B3n+en+C%2FPunteros" title="Agregar enlaces interlingüísticos" class="wbc-editpage">Añadir enlaces</a></span></div>			</div>
+		</div>
+				</div>
+		</div>
+				<div id="footer" role="contentinfo">
+						<ul id="footer-info">
+								<li id="footer-info-lastmod"> Se editó esta página por última vez el 3 may 2018 a las 21:55.</li>
+								<li id="footer-info-copyright">El texto está disponible bajo la <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.es">Licencia Creative Commons Atribución-CompartirIgual 3.0</a>;
+pueden aplicarse términos adicionales.
+Véase <a href="https://wikimediafoundation.org/wiki/Terms_of_Use/es">Términos de uso</a> para más detalles.</li>
+							</ul>
+						<ul id="footer-places">
+								<li id="footer-places-privacy"><a href="https://meta.wikimedia.org/wiki/Privacy_policy/es" class="extiw" title="m:Privacy policy/es">Política de protección de datos</a></li>
+								<li id="footer-places-about"><a href="https://es.wikibooks.org/wiki/Wikilibros:Acerca_de" title="Wikilibros:Acerca de">Acerca de Wikilibros</a></li>
+								<li id="footer-places-disclaimer"><a href="https://es.wikibooks.org/wiki/Wikilibros:Descargo_general" class="mw-redirect" title="Wikilibros:Descargo general">Exoneraciones</a></li>
+								<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Desarrolladores</a></li>
+								<li id="footer-places-cookiestatement"><a href="https://wikimediafoundation.org/wiki/Cookie_statement/es">Declaración de cookies</a></li>
+								<li id="footer-places-mobileview"><a href="https://es.m.wikibooks.org/w/index.php?title=Programaci%C3%B3n_en_C/Punteros&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Versión para móviles</a></li>
+							</ul>
+										<ul id="footer-icons" class="noprint">
+										<li id="footer-copyrightico">
+						<a href="https://wikimediafoundation.org/"><img src="./Programación en C_Punteros - Wikilibros_files/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"></a>					</li>
+										<li id="footer-poweredbyico">
+						<a href="https://www.mediawiki.org/"><img src="./Programación en C_Punteros - Wikilibros_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/poweredby_mediawiki_132x47.png 1.5x, /static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>					</li>
+									</ul>
+						<div style="clear: both;"></div>
+		</div>
+		
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.088","walltime":"4.317","ppvisitednodes":{"value":206,"limit":1000000},"ppgeneratednodes":{"value":0,"limit":1500000},"postexpandincludesize":{"value":871,"limit":2097152},"templateargumentsize":{"value":146,"limit":2097152},"expansiondepth":{"value":5,"limit":40},"expensivefunctioncount":{"value":0,"limit":500},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":23146,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%    6.121      1 Plantilla:Navegar","100.00%    6.121      1 -total"," 47.03%    2.879      1 Plantilla:AutoCategoría"]},"cachereport":{"origin":"mw1269","timestamp":"20180709202902","ttl":1900800,"transientcontent":false}}});mw.config.set({"wgBackendResponseTime":93,"wgHostname":"mw1262"});});</script>
+	
+
+<div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

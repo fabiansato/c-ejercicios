@@ -1,0 +1,30 @@
+Una empresa de envasado de botellas quiere un programa para registrar su produccion (5 registros)
+Envasa en 3 medidas: tipo a (1 lt), tipo b(1,5lt), tipo c(2,25lt)
+Hacer un menú que permita:
+
+1. Ingresar los registros
+	Se ingresa:
+	Numero de empleado
+	Cantidad de botellas
+	Medida de botellas
+	Precio final.
+Todos los datos se guardan directamente en un archivo llamado pedido.txt.
+2. Cargar los registros en vectores
+Se lee desde el archivo y se pasan los datos a vectores.
+3. Informar la cantidad de registros que hay de cada tipo de envasado, y cuantos litros serían en total.
+4. Informar el código de empleado de la mayor venta que se haya realizado, y el total recaudado de todas las ventas.
+5. Salir.
+
+Hacer cada opción con una función.
+Hacer el menú en una función.
+
+Preguntas teóricas: 
+Verdadero/falso, justificar.
+Un puntero, es una variable normal? Tener en cuenta los 3 datos que se le autoasignan a las variables normales.
+Se puede tratar a un vector como un puntero?
+Es lo mismo el pasaje por valor que el pasaje por referencia?
+Multiple choice:
+Estructura de declaración de un puntero.
+
+NOTA:
+el .exe es una solución que se acerca a lo pedido. no está perfectamente desarrollada.

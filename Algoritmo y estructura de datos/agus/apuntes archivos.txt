@@ -1,0 +1,59 @@
+Estructura File
+
+En el archivo STDIO:H se define la estructura file. La secuencia de acceso a un archivo debe contener esta cabecera. Todo Programa que desee trabajar con archivos debe contener un puntero a file (*file)
+
+FUNCIONES
+fopen = Abre archivos
+fclose = Cierra archivos
+
+Apertura de archivos de textos
+
+MODO	SIGNIFICADO
+"r"	Abre un archivo para lectura (el archivo tiene que existir.
+
+"w"	Crea un archivo de escritura. Si el archivo ya existe borra el contenido que tiene.
+
+"a"	(append) Abre un achivo para agregar datos a un archivo ya existente.
+
+"r+"	Abre un archivo para lectura/escritura. El archivo tiene que existir.
+
+"w+"	Crea un archivo para lectura/escritura. Si el archivo tenía datos estos se borran en la apertura.
+
+"a+"	Crea o abre un archivo para lectura/escritura. Los datos se escriben al final del archivo.
+
+Siempre hay que cerrar los archivos antes de finalizar el programa.
+
+FUNCIONES
+fgetc
+Sirve para leer caracteres de forma secuencial.
+
+fputc
+Escribe un caracter en el archivo.
+
+feof
+(file end of file)
+Ddevuelve VERDADERO si se llegó al final del archivo.
+
+fgets
+Lee una cadena de caracteres desde el archivo.
+
+fputs
+Escribe una cadena de caracteres en el archivo.
+
+fprintf en el archivo
+Escribe una salida de datos con formato en el archivo.
+
+fscanf
+Lee una entrada de datos con formato desde el archivo.
+
+remove
+Borra un archivo.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,2 @@
+1	agustin	25000.00
+2	patricio	45000.00

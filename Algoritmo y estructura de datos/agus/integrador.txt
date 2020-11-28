@@ -1,0 +1,14 @@
+Realizar un menu que permita realizar las siguientes opciones:
+
+1. Realizar la carga del codigo de cada empleado de la empresa y el sueldo que cobra. En total son 6 empleados.
+
+2. Mostrar por cada empleado su codigo y sueldo.
+
+3. Determinar e informar cual es el empleado que tiene mayor sueldo y el menor sueldo. Para ello mostrar por pantalla codigo de empleado y sueldo.
+
+4. Crear un archivo llamado empleados.txt con todos los datos de los empleados de la empresa, cuyos campos son: codigo de empleado y sueldo.
+
+5. Salir del programa.
+
+Utilizar como minimo dos funciones con pasaje por referencia.
+

@@ -1,0 +1,1 @@
+C es un lenguaje de programación originalmente desarrollado por Dennis Ritchie entre 1969 y 1972 en los Laboratorios Bell,2? como evolución del anterior lenguaje B, a su vez basado en BCPL.
